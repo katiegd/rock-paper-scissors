@@ -8,29 +8,37 @@
 
 //Getting User Input
 
-let choices = ('rock','paper','scissors')
+const choices = ('rock','paper','scissors')
 
 // Getting user choice
 const getUserChoice = prompt('Do you want rock, paper, or scissors?').toLocaleLowerCase();
     if(getUserChoice === "paper" || getUserChoice === "rock" || getUserChoice === "scissors") {
-        console.log('You chose' + ' ' + getUserChoice);
     } else {
         console.log('Error! Try again.');
     }
 
 // Getting computer choice
-const getComputerChoice = (Math.random() * 3);
+let getComputerChoice = (Math.random() * 3);
     if(getComputerChoice <= 1) {
-        console.log('Computer chooses rock.')
+        getComputerChoice = 'rock';
     } else if(getComputerChoice <= 2) {
-        console.log('Computer chooses paper.')
+        getComputerChoice = 'paper';
     } else {
-        console.log('Computer chooses scissors.')
+        getComputerChoice = 'scissors';
         }
+
+console.log(getComputerChoice)
 
 // Playing a round
 function playRound (getUserChoice, getComputerChoice) {
     if(getUserChoice === 'rock' && getComputerChoice === 'paper') {
-        console.log('You lose! Paper beats rock.')
-    } else if (getUserChoice === 'paper' && getComputerChoice === )
+        console.log('You lose! Paper beats rock.');
+    } else if (getUserChoice === 'rock' && getComputerChoice === 'scissors') {
+        console.log('You win! Rock beats scissors.');
+    } else { 
+        console.log("It's a tie. Try again!");
+    }
 }
+
+playRound();
+

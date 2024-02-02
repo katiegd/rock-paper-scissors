@@ -27,7 +27,7 @@ function playGame(playerMove) {
     let computerChoice = getComputerMove();
     let result = '';
     if(playerMove === computerChoice) {
-        result = 'It is a tie.'
+        result = 'Tie.'
     } else if((playerMove === 'rock' && computerChoice === 'paper') || 
     (playerMove === 'scissors' && computerChoice === 'rock') || 
     (playerMove === 'paper' && computerChoice === 'scissors')) { 
@@ -40,7 +40,7 @@ function playGame(playerMove) {
         score.wins += 1;
     } else if(result === 'You lose!') {
         score.losses += 1;
-    } else if(result === 'It is a tie.')
+    } else if(result === 'Tie.')
         score.ties += 1;
 
     localStorage.setItem('score', JSON.stringify(score));
@@ -57,14 +57,21 @@ function playGame(playerMove) {
 
 function updateScoreElement() {
     document.querySelector('.js-score')
-    .textContent = `Wins: ${score.wins} // Losses: ${score.losses} // Ties: ${score.ties}`;
+    .textContent = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
 
     if(score.wins === 5) {
-        document.querySelector('.js-score').textContent = 'Congratulations! You won 5 rounds.'
+        document.querySelector('.js-score').textContent = 'Congratulations! You won 5 rounds.';
+        document.querySelector('.js-user-comp-moves')
+        .textContent = '';
     } else if(score.losses === 5) {
         document.querySelector('.js-score').textContent = 'Sorry, you lost to the almighty computer.';
+
+        document.querySelector('.js-user-comp-moves')
+        .textContent = '';
     }
 }   
+
+const textElements = [];
 
 function resetScore() {
     score.wins = 0;
@@ -72,4 +79,10 @@ function resetScore() {
     score.ties = 0;
     localStorage.removeItem('score');
     updateScoreElement();
+
+    document.querySelector('.js-user-comp-moves')
+    .textContent = '';
+
+    document.querySelector('.js-result')
+    .textContent = ''; 
 }

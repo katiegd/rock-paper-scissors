@@ -29,7 +29,7 @@ body {
 }
 
 button {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     width: 100px;
@@ -41,8 +41,9 @@ button {
 }
 
 button:hover {
-    background-color: rgb(124, 138, 160);
+    background-color: rgba(77, 90, 110, 0.5);
     cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
 }
 
 .js-result, .js-score {
